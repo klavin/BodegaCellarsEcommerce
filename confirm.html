@@ -1,0 +1,636 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Bodega Cellars | Seattle Washington Wine Shop</title>
+        
+        <meta charset="utf-8" />
+        <meta name="viewport" content="device-content-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex,nofollow" />
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="chosen/chosen.css">
+        <link rel="stylesheet" href="style.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="chosen/chosen.jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+            $(window).load(function(){
+                $(".chosen-select").chosen()
+            });
+        </script>
+        <script>
+          $(function() {
+            $( "#slider-range" ).slider({
+              range: true,
+              min: 0,
+              max: 500,
+              values: [ 75, 300 ],
+              slide: function( event, ui ) {
+                $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+              }
+            });
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+              " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+          });
+        </script>
+        <script type="text/javascript">
+            $('#gallery li img').hover(function() {
+                $('#main-img').attr('src',$(this).attr('src').replace('thumb/', ''));
+            });
+            
+            $(document).ready(function() {
+                // Image swap on hover
+                $("#gallery li img").hover(function(){
+                    $('#main-img').attr('src',$(this).attr('src').replace('thumb/', ''));
+                });
+                // Image preload
+                var imgSwap = [];
+                 $("#gallery li img").each(function(){
+                    imgUrl = this.src.replace('thumb/', '');
+                    imgSwap.push(imgUrl);
+                });
+                $(imgSwap).preload();
+            });
+            $.fn.preload = function() {
+                this.each(function(){
+                    $('<img/>')[0].src = this;
+                });
+            }
+            
+            $(function() {
+                var spinner = $( ".spinner" ).spinner();
+
+                $( "#disable" ).click(function() {
+                  if ( spinner.spinner( "option", "disabled" ) ) {
+                    spinner.spinner( "enable" );
+                  } else {
+                    spinner.spinner( "disable" );
+                  }
+                });
+                $( "#destroy" ).click(function() {
+                  if ( spinner.spinner( "instance" ) ) {
+                    spinner.spinner( "destroy" );
+                  } else {
+                    spinner.spinner();
+                  }
+                });
+                $( "#getvalue" ).click(function() {
+                  alert( spinner.spinner( "value" ) );
+                });
+                $( "#setvalue" ).click(function() {
+                  spinner.spinner( "value", 5 );
+                });
+
+                $( "button" ).button();
+              });
+        </script>
+    </head>
+    <body>
+        <header class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8">
+                    <a href="index.html">
+                        <img src="images/bodegalogolight.png" width="200px" class="img-responsive pull-left">
+                        <h1 class="pull-left">Bodega Cellars</h1>
+                    </a>
+                </div>
+                <div class="col-sm-1 col-sm-offset-2">
+                    <a href="javascript;:" class="img-responsive pull-right">
+                        <img src="images/twitter47.png">
+                    </a>
+                </div>
+                <div class="col-sm-1">
+                    <a href="javascript;:" class="img-responsive pull-right">
+                        <img src="images/facebook56.png">
+                    </a>
+                </div>    
+            </div>
+            <div class="row">
+                <nav class="col-sm-11 col-sm-offset-1">
+                    <ul>
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Location</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Upcoming Events</a>
+                        </li>
+                        <li>
+                            <a href="#">About Family Membership</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="btn">Sign In</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="btn">Sign Up</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ordersum.html">
+                                <i class="fa fa-shopping-cart fa-2x"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-heart fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div id="middle" class="container-fluid">
+            <div class="row">
+                <nav id="middle-main">
+                    <ul>
+                        <li>
+                            <a href="#">Special Offers</a>
+                        </li>
+                        <li>
+                            <a href="#">Best Sellers</a>
+                        </li>
+                        <li>
+                            <a href="#">Washington</a>
+                        </li>
+                        <li>
+                            <a href="#">Italy</a>
+                        </li>
+                        <li>
+                            <a href="france.html">France</a>
+                        </li>
+                        <li>
+                            <form  action="formhandler.php" method="post">
+                                <input type="text" name="search" id="search" maxlength="40" required="required" />
+                                <button class="pull-right btn">Search</button>
+                            </form>
+                        </li>   
+                    </ul>    
+                </nav>
+            </div> 
+            
+            <div class="row">
+                <ul class="list-group col-sm-12 col-sm-offset-1">
+                    <li class="list-group-item">Order Summary</li>
+                    <li class="list-group-item">Sign In</li>
+                    <li class="list-group-item">Shipping and Billing</li>
+                    <li class="list-group-item">Review Order</li>
+                    <li class="list-group-item active">Confirmation</li>
+                </ul>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-10">
+                    <h1>Thank you for your purchase!</h1>
+                    <h3>We'll begin assembling it right away.</h3>
+                    <h3>A confirmation letter was sent to <em>qweenofwine@westeros.com</em></h3>
+                    <h3>You can also download a copy <a>here.</a></h3>
+                </div>
+            
+            <div class="row subtotal">
+                <div>
+                    <ul class="list-group pull-right">
+                        <li class="list-group-item"><h3>Subtotal</h3></li>
+                        <li class="list-group-item"><h3>$XX.XX</h3></li>
+                    </ul>
+                </div>
+            </div>
+                
+                <div class="checkout-nav">
+                    <div class="col-sm-2 only-child pull-right">
+                        <a href="javascript:;">
+                            <button class="btn">Back to Browse</button>
+                        </a>
+                    </div>
+                </div>    
+            </div>
+            
+            <div class="row center-block">
+                <div class="col-sm-5 panel">
+                    <h2>Billing Information</h2>
+                    <h4>Please enter all information exactly as it appears on the card</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="billing-first">*First Name</label>
+                            <input type="text" class="form-control" id="billing-first" placeholder="Cersei">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="billing-last">*Last Name</label>
+                            <input type="text" class="form-control" id="billing-last" placeholder="Lannister">
+                        </div>  
+                        
+                        <div class="form-group">
+                            <label for="billing-tel">Phone Number</label>
+                            <input type="tel" class="form-control" id="billing-tel" placeholder="206-999-9898">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="billing-add">*Billing Address</label>
+                            <input type="text" class="form-control billing-add" placeholder="The Royal Suite, The Red Keep">
+                            <input type="text" class="form-control billing-add" placeholder="100 Kings Road">
+                        </div>    
+                        
+                        <div class="form-group pull-left">
+                            <label for="billing-city">*City</label>
+                            <input type="text" id="billing-city" class="form-control" placeholder="King's Landing">
+                        </div>
+                        
+                        <div class="form-group pull-left">
+                            <label for="billing-zip">*Zip Code</label>
+                            <input type="text" class="form-control" id="billing-zip" placeholder="10001">
+                        </div>
+                        
+                        <div class="form-group clear">
+                            <label for="billing-state">*State</label>
+                            <select class="form-control" id="billing-state">
+                                <option>Select one...</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA" selected="selected">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                    </form>
+                    <h4>Card Information</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="billing-card">*Card Type</label>
+                            <select class="form-control" id="billing-card">
+                                <option>Select one...</option>
+                                <option>Visa</option>
+                                <option selected='selected'>MasterCard</option>
+                                <option>American Express</option>
+                                <option>Discover</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="billing-card-num">*Card Number</label>
+                            <input type="text" id="billing-card-num" class="form-control" placeholder="9999-8888-7777-6666">
+                        </div>
+                        
+                        <div class="form-group pull-left">
+                            <label for="billing-expire" class="pull-left">*Expiration Date</label>
+                            <select class="billing-expire form-control pull-left clear" id="billing-month">
+                                <option>Month</option>
+                                <option>01- Jan</option>
+                                <option>02- Feb</option>
+                                <option>03- Mar</option>
+                                <option selected='selected'>04- Apr</option>
+                                <option>05- May</option>
+                                <option>06- Jun</option>
+                                <option>07- Jul</option>
+                                <option>08- Aug</option>
+                                <option>09- Sep</option>
+                                <option>10- Oct</option>
+                                <option>11- Nov</option>
+                                <option>12- Dec</option>
+                            </select>
+                            
+                            <select class="billing-expire form-control pull-left" id="billing-year">
+                                <option>Year</option>
+                                <option>2015</option>
+                                <option>2016</option>
+                                <option>2017</option>
+                                <option>2018</option>
+                                <option selected='selected'>2019</option>
+                                <option>2020</option>
+                                <option>2021</option>
+                                <option>2022</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group pull-left cvv">
+                            <label for="cvv">*CVV</label>
+                            <input type="text" class="form-control" id="cvv" placeholder="123">
+                            <a href="javascript::"><small>What's this?</small></a>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="col-sm-5 panel pull-left">
+                    <h2>Delivery Information</h2>
+                    <form>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="" checked>I would like Bodega Cellars to deliver my order for a flat fee of $10.<br><a href="javascript:;">Am I eligible for delivery?</a><br>Alternately, you can pick up your order in-store for free.
+                            </label>
+                        </div>
+                        
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="" checked>Use my billing information
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="shipping-first">*First Name</label>
+                            <input type="text" class="form-control" id="shipping-first" placeholder="Cersei">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="shipping-last">*Last Name</label>
+                            <input type="text" class="form-control" id="shipping-last" placeholder="Lannister">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="shipping-phone">*Phone</label>
+                            <input type="tel" id="shipping-phone" class="form-control" placeholder="206-999-9999">
+                        </div>
+                            
+                        <div class="form-group">
+                            <label for="shipping-address">*Delivery Address</label>
+                            <input class="shipping-address form-control" type="text" placeholder="The Royal Suite, The Red Keep">
+                            <input class="shipping-address form-control" type="text" placeholder="100 King's Road">
+                        </div>
+                        
+                        <div class="form-group pull-left">
+                            <label for="shipping-city">*City</label>
+                            <input type="text" id="shipping-city" class="form-control" placeholder="King's Landing">
+                        </div>
+                        
+                        <div class="form-group pull-left">
+                            <label for="shipping-zip">*Zip Code</label>
+                            <input type="text" id="shipping-zip" class="form-control" placeholder="10001">
+                        </div>
+                    </form>
+                </div>
+            
+            <div class="row subtotal clear">
+                <div>
+                    <ul class="list-group pull-right">
+                        <li class="list-group-item"><h3>Subtotal</h3></li>
+                        <li class="list-group-item"><h3>$XX.XX</h3></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-4">
+                    <h1>Order Summary</h1>
+                </div>
+                
+                <div class="checkout-nav">
+                    
+                    <div class="col-sm-2 only-child pull-right">
+                        <a href="javascript:;">
+                            <button class="btn">Back to Browse</button>
+                        </a>
+                    </div>
+                </div>    
+            </div>
+            
+            <div class="row">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th><h2>Item</h2></th>
+                        <th><h2>Item Price</h2></th>
+                        <th><h2>Quantity</h2> <small>*Case discount of 15% when you buy 12 or more</small></th>
+                        <th><h2>Total Price</h2></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/labels/product/t_bottle.jpg" class="img-responsive">
+                        </td>
+                        <td class="item">
+                            <h3>Fevre Fourchaume Chablis Premier Cru</h3>
+                            <p>Our CHABLIS 1er CRU FOURCHAUME (one of the most noted Chablis 1ers crus) originates from vineyards situated on long slopes facing the sunrise, allowing rapid soil warm up which aids quality maturing.</p>
+                        </td>
+                        <td class="price">
+                            <ul class="list-group">
+                                <li class="list-group-item center-block">$XX.XX</li>
+                            </ul>
+                        </td>
+                        <td class="quantity">
+                            <input type="text" name="value" placeholder="1"><br>
+                        </td>
+                        <td class="price">
+                            <ul class="list-group">
+                                <li class="list-group-item center-block">$XX.XX</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <img src="images/labels/t_savage-grace-14-ri.jpg" class="img-responsive">
+                        </td>
+                        <td class="item">
+                            <h3>Savage Grace Riesling</h3>
+                            <p>“The location of Underwood Mountain Vineyard, on a steep volcanic hillside high above the Columbia River Gorge, is the perfect climate for providing the lengthy ripening season needed for the Riesling grape’s intense flavors to develop, while not losing the acidity that’s core to the grape. Flavors of tangerine, lime, ginger root, and wet stone combine to make a delicious off-dry Riesling that finishes dry.”</p>
+                        </td>
+                        <td class="price">
+                            <ul class="list-group">
+                                <li class="list-group-item center-block">$XX.XX</li>
+                            </ul>
+                        </td>
+                        <td class="quantity">
+                            <input type="text" name="value" placeholder="1"><br>
+                        </td>
+                        <td class="price">
+                            <ul class="list-group">
+                                <li class="list-group-item center-block">$XX.XX</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <img src="images/labels/t_mullerfront.jpg" class="img-responsive">
+                        </td>
+                        <td class="item">
+                            <h3>Northwest Wine Academy Muller Thurgau</h3>
+                            <p>With fresh and bright acidity, this brilliant, white-gold libation starts with a refreshing air of honeysuckle and finishes with a lively punch of green apple and a kiss of lime on your palate.</p>
+                        </td>
+                        <td class="price">
+                            <ul class="list-group">
+                                <li class="list-group-item center-block">$XX.XX</li>
+                            </ul>
+                        </td>
+                        <td class="quantity">
+                            <input type="text" name="value" placeholder="1"><br>
+                        </td>
+                        <td class="price">
+                            <ul class="list-group">
+                                <li class="list-group-item center-block">$XX.XX</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            </div>
+                
+             <div class="row subtotal">
+                <div>
+                    <ul class="list-group pull-right">
+                        <li class="list-group-item"><h3>Subtotal</h3></li>
+                        <li class="list-group-item"><h3>$XX.XX</h3></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="checkout-nav">
+                    <div class="col-sm-2 only-child pull-right">
+                        <a href="javascript:;">
+                            <button class="btn">Back to Browse</button>
+                        </a>
+                    </div>
+                </div>    
+            </div>
+        </div>
+            
+        <footer class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2 footer-main">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">About Us</a>
+                            </li>
+                            <li>
+                                <a href="javacript:;">Contact</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Upcoming Events</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">About Family Membership</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2 footer-sub">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">Special Offers</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Best Sellers</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Washington</a>
+                            </li>
+                            <li>
+                                <a href="france.html">France</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Italy</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2 footer-social">
+                    <nav>
+                        <h3>Follow Us:</h3>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="images/twitter47.png" class="img-responsive">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="images/facebook56.png" class="img-responsive">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2">
+                    <nav>
+                    <h3>Location</h3>
+                        <ul>
+                            <li>
+                                <a href="tel:1-999-999-9999">999-999-9999</a>
+                            </li>
+                            <li>
+                                <a href="mailto:example@whatever.com">trevor@bodegacellars.com</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">1111 Avenue Road<br>Seattle, Wa 98112</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-3 pull-right">
+                    <a href="https://www.google.com/maps/place/Seattle+Central+College/@47.6163451,-122.3217413,17z/data=!4m2!3m1!1s0x54906accc351c149:0xdc1a5c338dd4395c">
+                        <img src="images/map.jpg" class="img-responsive">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <form  action="formhandler.php" method="post">
+                        <input type="text" name="search" id="search" maxlength="40" required="required" />
+                        <button class="btn">Search</button>
+                    </form>
+                </div>    
+            </div>
+        </footer>
+    </body>
+</html>    

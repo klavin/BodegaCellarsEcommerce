@@ -1,0 +1,395 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Bodega Cellars | Seattle Washington Wine Shop</title>
+        
+        <meta charset="utf-8" />
+        <meta name="viewport" content="device-content-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex,nofollow" />
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="chosen/chosen.css">
+        <link rel="stylesheet" href="style.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="chosen/chosen.jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+            $(window).load(function(){
+                $(".chosen-select").chosen()
+            });
+        </script>
+        <script>
+          $(function() {
+            $( "#slider-range" ).slider({
+              range: true,
+              min: 0,
+              max: 500,
+              values: [ 75, 300 ],
+              slide: function( event, ui ) {
+                $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+              }
+            });
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+              " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+          });
+        </script>
+        <script type="text/javascript">
+            $('#gallery li img').hover(function() {
+                $('#main-img').attr('src',$(this).attr('src').replace('thumb/', ''));
+            });
+            
+            $(document).ready(function() {
+                // Image swap on hover
+                $("#gallery li img").hover(function(){
+                    $('#main-img').attr('src',$(this).attr('src').replace('thumb/', ''));
+                });
+                // Image preload
+                var imgSwap = [];
+                 $("#gallery li img").each(function(){
+                    imgUrl = this.src.replace('thumb/', '');
+                    imgSwap.push(imgUrl);
+                });
+                $(imgSwap).preload();
+            });
+            $.fn.preload = function() {
+                this.each(function(){
+                    $('<img/>')[0].src = this;
+                });
+            }
+            
+            $(function() {
+                var spinner = $( "#spinner" ).spinner();
+
+                $( "#disable" ).click(function() {
+                  if ( spinner.spinner( "option", "disabled" ) ) {
+                    spinner.spinner( "enable" );
+                  } else {
+                    spinner.spinner( "disable" );
+                  }
+                });
+                $( "#destroy" ).click(function() {
+                  if ( spinner.spinner( "instance" ) ) {
+                    spinner.spinner( "destroy" );
+                  } else {
+                    spinner.spinner();
+                  }
+                });
+                $( "#getvalue" ).click(function() {
+                  alert( spinner.spinner( "value" ) );
+                });
+                $( "#setvalue" ).click(function() {
+                  spinner.spinner( "value", 5 );
+                });
+
+                $( "button" ).button();
+              });
+        </script>
+    </head>
+    <body>
+        <header class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8">
+                    <a href="index.html">
+                        <img src="images/bodegalogolight.png" width="200px" class="img-responsive pull-left">
+                        <h1 class="pull-left">Bodega Cellars</h1>
+                    </a>
+                </div>
+                <div class="col-sm-1 col-sm-offset-2">
+                    <a href="javascript;:" class="img-responsive pull-right">
+                        <img src="images/twitter47.png">
+                    </a>
+                </div>
+                <div class="col-sm-1">
+                    <a href="javascript;:" class="img-responsive pull-right">
+                        <img src="images/facebook56.png">
+                    </a>
+                </div>    
+            </div>
+            <div class="row">
+                <nav class="col-sm-11 col-sm-offset-1">
+                    <ul>
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Location</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Upcoming Events</a>
+                        </li>
+                        <li>
+                            <a href="#">About Family Membership</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="btn">Sign In</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="btn">Sign Up</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ordersum.html">
+                                <i class="fa fa-shopping-cart fa-2x"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-heart fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div id="middle" class="container-fluid">
+            <div class="row">
+                <nav id="middle-main">
+                    <ul>
+                        <li>
+                            <a href="#">Special Offers</a>
+                        </li>
+                        <li>
+                            <a href="#">Best Sellers</a>
+                        </li>
+                        <li>
+                            <a href="#">Washington</a>
+                        </li>
+                        <li>
+                            <a href="#">Italy</a>
+                        </li>
+                        <li>
+                            <a href="france.html">France</a>
+                        </li>
+                        <li>
+                            <form  action="formhandler.php" method="post">
+                                <input type="text" name="search" id="search" maxlength="40" required="required" />
+                                <button class="pull-right btn">Search</button>
+                            </form>
+                        </li>   
+                    </ul>    
+                </nav>
+            </div> 
+            
+            <div class="row">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="index.html">
+                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="france.html">France</a>
+                        </li>
+                        <li>
+                            <a href="burgundy.html">Burgundy</a>
+                        </li>
+                        <li>
+                            <a href="chablis.html">Chablis</a>
+                        </li>
+                        <li>
+                            <a class="active">Fevre Fourchaume Chablis Premier Cru</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            
+            <div class="row">
+                <div id="sidebar">
+                    <div class="col-sm-5" id="gallery"> 
+            
+                        <ul class="pull-left">
+                            <li><img src="images/gallery/thumb/label.jpg" width="100px"></li>
+                            <li><img src="images/gallery/thumb/bottle.jpg" width="100px"></li>  
+                            <li><img src="images/gallery/thumb/winemakers.jpg" width="100px"></li>
+                        </ul>
+                        
+                        <img src="images/labels/chablis/Domaine_Fevre_Chablis_Premier_Cru_Fourchaume_2010.jpg" class="pull-right img-responsive" id="main-img">
+                    </div>
+                </div>
+                <div class="col-sm-7 content">
+                    <h1>Fevre Fourchaume Chablis Premier Cru</h1>
+                    <div class="price">
+                        <h3>$40</h3>
+                        <p class="left">
+                              <label for="spinner">Quantity:</label>
+                              <input id="spinner" name="value">
+                        </p>
+                        <button class="btn pull-left">Add QUANTITY to Cart</button>
+                        <button class="btn pull-left">Add CASE to Cart</button>
+                        <button class="btn pull-left">Add to WISHLIST</button>    
+                        <small class="clear pull-left">*Case discount- save 15%!</small> 
+                    </div>    
+                            
+                    <p class="left clear">Our CHABLIS 1er CRU FOURCHAUME (one of the most noted Chablis 1ers crus) originates from vineyards situated on long slopes facing the sunrise, allowing rapid soil warm up which aids quality maturing.</p>
+                    <p class="left">This Premier Cru is long and rich, with fruity flavours and mineral notes.</p>
+                    <p class="left">Good with fish as well as white meats.</p>
+                    <nav id="about">
+                        <ul>
+                            <li>
+                                <a href="http://http://www.nathalieetgillesfevre.com/" target="_blank">More about the winemakers</a>
+                            </li>
+                            <li>
+                                <a href="https://en.wikipedia.org/wiki/Chablis_wine" target="_blank">More about Chablis</a>
+                            </li>
+                            <li>
+                                <a href="https://en.wikipedia.org/wiki/Chardonnay" target="_blank">More about Chardonnay</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 suggest">
+                    <h1>May we suggest...</h1>
+                </div>
+            </div>
+            <div class="row products">
+                        <div class="col-sm-10 col-sm-offset-1">
+                            <div class="thumbnail thirty pull-left">
+                                <img src="images/labels/chablis/DL-12-Chablis-Les-Blanchots-Front-Label.jpg" class="img-responsive">
+                                <div class="caption">
+                                    <h3>Domaine Laroche Chablis Grand Cru</h3>
+                                    <p>$9</p>
+                                    <a href="javascript:;" class="pull-left" role="button">
+                                        <button class="btn">Details</button>
+                                    </a>
+                                    <a href="javascript:;" class="pull-right">
+                                        <button class="btn">Add to Cart</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="thumbnail thirty pull-left">
+                                <img src="images/labels/chablis/Label-%20Louis%20Jadot%20Chablis.jpg" class="img-responsive">
+                                <div class="caption">
+                                    <h3>Louis Jadot<br> Chablis</h3>
+                                    <p>$14</p>
+                                    <a href="javascript:;" class="pull-left" role="button">
+                                        <button class="btn">Details</button>
+                                    </a>
+                                    <a href="javascript:;" class="pull-right">
+                                        <button class="btn">Add to Cart</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="thumbnail thirty pull-left">
+                                <img src="images/labels/chablis/fourcha.jpg" class="img-responsive">
+                                <div class="caption">
+                                    <h3>Fourchaume Chablis Premier Cru</h3>
+                                    <p>$22</p>
+                                    <a href="javascript:;" class="pull-left" role="button">
+                                        <button class="btn">Details</button>
+                                    </a>
+                                    <a href="javascript:;" class="pull-right">
+                                        <button class="btn">Add to Cart</button>
+                                    </a>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+        </div>
+        <footer class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2 footer-main">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">Home</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">About Us</a>
+                            </li>
+                            <li>
+                                <a href="javacript:;">Contact</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Upcoming Events</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">About Family Membership</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2 footer-sub">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">Special Offers</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Best Sellers</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Washington</a>
+                            </li>
+                            <li>
+                                <a href="france.html">France</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Italy</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2 footer-social">
+                    <nav>
+                        <h3>Follow Us:</h3>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="images/twitter47.png" class="img-responsive">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="images/facebook56.png" class="img-responsive">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2">
+                    <nav>
+                    <h3>Location</h3>
+                        <ul>
+                            <li>
+                                <a href="tel:1-999-999-9999">999-999-9999</a>
+                            </li>
+                            <li>
+                                <a href="mailto:example@whatever.com">trevor@bodegacellars.com</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">1111 Avenue Road<br>Seattle, Wa 98112</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-3 pull-right">
+                    <a href="https://www.google.com/maps/place/Seattle+Central+College/@47.6163451,-122.3217413,17z/data=!4m2!3m1!1s0x54906accc351c149:0xdc1a5c338dd4395c">
+                        <img src="images/map.jpg" class="img-responsive">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <form  action="formhandler.php" method="post">
+                        <input type="text" name="search" id="search" maxlength="40" required="required" />
+                        <button class="btn">Search</button>
+                    </form>
+                </div>    
+            </div>
+        </footer>
+    </body>
+</html>    

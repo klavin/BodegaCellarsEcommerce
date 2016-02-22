@@ -1,0 +1,427 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Bodega Cellars | Seattle Washington Wine Shop</title>
+        
+        <meta charset="utf-8" />
+        <meta name="viewport" content="device-content-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex,nofollow" />
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="chosen/chosen.css">
+        <link rel="stylesheet" href="style.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="chosen/chosen.jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+            $(window).load(function(){
+                $(".chosen-select").chosen()
+            });
+        </script>
+        <script>
+          $(function() {
+            $( "#slider-range" ).slider({
+              range: true,
+              min: 0,
+              max: 500,
+              values: [ 75, 300 ],
+              slide: function( event, ui ) {
+                $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+              }
+            });
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+              " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+          });
+        </script>
+        <script type="text/javascript">
+            $('#gallery li img').hover(function() {
+                $('#main-img').attr('src',$(this).attr('src').replace('thumb/', ''));
+            });
+            
+            $(document).ready(function() {
+                // Image swap on hover
+                $("#gallery li img").hover(function(){
+                    $('#main-img').attr('src',$(this).attr('src').replace('thumb/', ''));
+                });
+                // Image preload
+                var imgSwap = [];
+                 $("#gallery li img").each(function(){
+                    imgUrl = this.src.replace('thumb/', '');
+                    imgSwap.push(imgUrl);
+                });
+                $(imgSwap).preload();
+            });
+            $.fn.preload = function() {
+                this.each(function(){
+                    $('<img/>')[0].src = this;
+                });
+            }
+            
+            $(function() {
+                var spinner = $( ".spinner" ).spinner();
+
+                $( "#disable" ).click(function() {
+                  if ( spinner.spinner( "option", "disabled" ) ) {
+                    spinner.spinner( "enable" );
+                  } else {
+                    spinner.spinner( "disable" );
+                  }
+                });
+                $( "#destroy" ).click(function() {
+                  if ( spinner.spinner( "instance" ) ) {
+                    spinner.spinner( "destroy" );
+                  } else {
+                    spinner.spinner();
+                  }
+                });
+                $( "#getvalue" ).click(function() {
+                  alert( spinner.spinner( "value" ) );
+                });
+                $( "#setvalue" ).click(function() {
+                  spinner.spinner( "value", 5 );
+                });
+
+                $( "button" ).button();
+              });
+        </script>
+    </head>
+    <body>
+        <header class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8">
+                    <a href="index.html">
+                        <img src="images/bodegalogolight.png" width="200px" class="img-responsive pull-left">
+                        <h1 class="pull-left">Bodega Cellars</h1>
+                    </a>
+                </div>
+                <div class="col-sm-1 col-sm-offset-2">
+                    <a href="javascript;:" class="img-responsive pull-right">
+                        <img src="images/twitter47.png">
+                    </a>
+                </div>
+                <div class="col-sm-1">
+                    <a href="javascript;:" class="img-responsive pull-right">
+                        <img src="images/facebook56.png">
+                    </a>
+                </div>    
+            </div>
+            <div class="row">
+                <nav class="col-sm-11 col-sm-offset-1">
+                    <ul>
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Location</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Upcoming Events</a>
+                        </li>
+                        <li>
+                            <a href="#">About Family Membership</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="btn">Sign In</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="btn">Sign Up</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ordersum.html">
+                                <i class="fa fa-shopping-cart fa-2x"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-heart fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div id="middle" class="container-fluid">
+            <div class="row">
+                <nav id="middle-main">
+                    <ul>
+                        <li>
+                            <a href="#">Special Offers</a>
+                        </li>
+                        <li>
+                            <a href="#">Best Sellers</a>
+                        </li>
+                        <li>
+                            <a href="#">Washington</a>
+                        </li>
+                        <li>
+                            <a href="#">Italy</a>
+                        </li>
+                        <li>
+                            <a href="france.html">France</a>
+                        </li>
+                        <li>
+                            <form  action="formhandler.php" method="post">
+                                <input type="text" name="search" id="search" maxlength="40" required="required" />
+                                <button class="pull-right btn">Search</button>
+                            </form>
+                        </li>   
+                    </ul>    
+                </nav>
+            </div> 
+            
+            <div class="row">
+                <ul class="list-group col-sm-12 col-sm-offset-1">
+                    <li class="list-group-item active">Order Summary</li>
+                    <li class="list-group-item">Sign In</li>
+                    <li class="list-group-item">Shipping and Billing</li>
+                    <li class="list-group-item">Review Order</li>
+                    <li class="list-group-item">Confirmation</li>
+                </ul>
+            </div>
+            
+            <div class="row subtotal">
+                <div>
+                    <ul class="list-group pull-right">
+                        <li class="list-group-item"><h3>Subtotal</h3></li>
+                        <li class="list-group-item"><h3>$XX.XX</h3></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-4">
+                    <h1>Order Summary</h1>
+                </div>
+                
+                <div class="checkout-nav">
+                    <div class="col-sm-2 first-child pull-right">
+                        <a href="signin.html">
+                            <button class="btn">Continue to Checkout</button>
+                        </a>
+                    </div>
+                    
+                    <div class="col-sm-2 last-child pull-right">
+                        <a href="javascript:;">
+                            <button class="btn">Back to Browse</button>
+                        </a>
+                    </div>
+                </div>    
+            </div>
+            
+            <div class="row">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th><h2>Item</h2></th>
+                        <th><h2>Item Price</h2></th>
+                        <th><h2>Quantity</h2> <small>*Case discount of 15% when you buy 12 or more</small></th>
+                        <th><h2>Total Price</h2></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="images/labels/product/t_bottle.jpg" class="img-responsive">
+                        </td>
+                        <td class="item">
+                            <h3>Fevre Fourchaume Chablis Premier Cru</h3>
+                            <p>Our CHABLIS 1er CRU FOURCHAUME (one of the most noted Chablis 1ers crus) originates from vineyards situated on long slopes facing the sunrise, allowing rapid soil warm up which aids quality maturing.</p>
+                        </td>
+                        <td class="price">
+                            <ul class="list-group">
+                                <li class="list-group-item center-block">$XX.XX</li>
+                            </ul>
+                        </td>
+                        <td class="quantity">
+                            <input class="spinner" name="value" placeholder="1"><br>
+                            <a href="javascript:;">Update Quantity</a><br>
+                            <a href="javascript:;">X Remove From Cart</a>
+                        </td>
+                        <td class="price">
+                            <ul class="list-group">
+                                <li class="list-group-item center-block">$XX.XX</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <img src="images/labels/t_savage-grace-14-ri.jpg" class="img-responsive">
+                        </td>
+                        <td class="item">
+                            <h3>Savage Grace Riesling</h3>
+                            <p>“The location of Underwood Mountain Vineyard, on a steep volcanic hillside high above the Columbia River Gorge, is the perfect climate for providing the lengthy ripening season needed for the Riesling grape’s intense flavors to develop, while not losing the acidity that’s core to the grape. Flavors of tangerine, lime, ginger root, and wet stone combine to make a delicious off-dry Riesling that finishes dry.”</p>
+                        </td>
+                        <td class="price">
+                            <ul class="list-group">
+                                <li class="list-group-item center-block">$XX.XX</li>
+                            </ul>
+                        </td>
+                        <td class="quantity">
+                            <input class="spinner" name="value" placeholder="1"><br>
+                            <a href="javascript:;">Update Quantity</a><br>
+                            <a href="javascript:;">X Remove From Cart</a>
+                        </td>
+                        <td class="price">
+                            <ul class="list-group">
+                                <li class="list-group-item center-block">$XX.XX</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <img src="images/labels/t_mullerfront.jpg" class="img-responsive">
+                        </td>
+                        <td class="item">
+                            <h3>Northwest Wine Academy Muller Thurgau</h3>
+                            <p>With fresh and bright acidity, this brilliant, white-gold libation starts with a refreshing air of honeysuckle and finishes with a lively punch of green apple and a kiss of lime on your palate.</p>
+                        </td>
+                        <td class="price">
+                            <ul class="list-group">
+                                <li class="list-group-item center-block">$XX.XX</li>
+                            </ul>
+                        </td>
+                        <td class="quantity">
+                            <input class="spinner" name="value" placeholder="1"><br>
+                            <a href="javascript:;">Update Quantity</a><br>
+                            <a href="javascript:;">X Remove From Cart</a>
+                        </td>
+                        <td class="price">
+                            <ul class="list-group">
+                                <li class="list-group-item center-block">$XX.XX</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+         <div class="row subtotal">
+                <div>
+                    <ul class="list-group pull-right">
+                        <li class="list-group-item"><h3>Subtotal</h3></li>
+                        <li class="list-group-item"><h3>$XX.XX</h3></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="checkout-nav">
+                    <div class="col-sm-2 first-child pull-right">
+                        <a href="signin.html">
+                            <button class="btn">Continue to Checkout</button>
+                        </a>
+                    </div>
+                    
+                    <div class="col-sm-2 last-child pull-right">
+                        <a href="javascript:;">
+                            <button class="btn">Back to Browse</button>
+                        </a>
+                    </div>
+                </div>    
+            </div>
+            
+        </div>
+        <footer class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2 footer-main">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">Home</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">About Us</a>
+                            </li>
+                            <li>
+                                <a href="javacript:;">Contact</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Upcoming Events</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">About Family Membership</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2 footer-sub">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">Special Offers</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Best Sellers</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Washington</a>
+                            </li>
+                            <li>
+                                <a href="france.html">France</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Italy</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2 footer-social">
+                    <nav>
+                        <h3>Follow Us:</h3>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="images/twitter47.png" class="img-responsive">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="images/facebook56.png" class="img-responsive">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2">
+                    <nav>
+                    <h3>Location</h3>
+                        <ul>
+                            <li>
+                                <a href="tel:1-999-999-9999">999-999-9999</a>
+                            </li>
+                            <li>
+                                <a href="mailto:example@whatever.com">trevor@bodegacellars.com</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">1111 Avenue Road<br>Seattle, Wa 98112</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-3 pull-right">
+                    <a href="https://www.google.com/maps/place/Seattle+Central+College/@47.6163451,-122.3217413,17z/data=!4m2!3m1!1s0x54906accc351c149:0xdc1a5c338dd4395c">
+                        <img src="images/map.jpg" class="img-responsive">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <form  action="formhandler.php" method="post">
+                        <input type="text" name="search" id="search" maxlength="40" required="required" />
+                        <button class="btn">Search</button>
+                    </form>
+                </div>    
+            </div>
+        </footer>
+    </body>
+</html>    

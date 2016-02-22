@@ -1,0 +1,665 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Bodega Cellars | Seattle Washington Wine Shop</title>
+        
+        <meta charset="utf-8" />
+        <meta name="viewport" content="device-content-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex,nofollow" />
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="chosen/chosen.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="style.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="chosen/chosen.jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+            $(window).load(function(){
+                $(".chosen-select").chosen()
+            });
+        </script>
+        <script>
+          $(function() {
+            $( "#slider-range" ).slider({
+              range: true,
+              min: 0,
+              max: 500,
+              values: [ 75, 300 ],
+              slide: function( event, ui ) {
+                $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+              }
+            });
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+              " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+          });
+        </script>
+    </head>
+    <body>
+        <header class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8">
+                    <a href="index.html">
+                        <img src="images/bodegalogolight.png" width="200px" class="img-responsive pull-left">
+                        <h1 class="pull-left">Bodega Cellars</h1>
+                    </a>
+                </div>
+                <div class="col-sm-1 col-sm-offset-2">
+                    <a href="javascript;:" class="img-responsive pull-right">
+                        <img src="images/twitter47.png">
+                    </a>
+                </div>
+                <div class="col-sm-1">
+                    <a href="javascript;:" class="img-responsive pull-right">
+                        <img src="images/facebook56.png">
+                    </a>
+                </div>    
+            </div>
+            <div class="row">
+                <nav class="col-sm-11 col-sm-offset-1">
+                    <ul>
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Location</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Upcoming Events</a>
+                        </li>
+                        <li>
+                            <a href="#">About Family Membership</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="btn">Sign In</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="btn">Sign Up</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ordersum.html">
+                                <i class="fa fa-shopping-cart fa-2x"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-heart fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div id="middle" class="container-fluid">
+            <div class="row">
+                <nav id="middle-main">
+                    <ul>
+                        <li>
+                            <a href="#">Special Offers</a>
+                        </li>
+                        <li>
+                            <a href="#">Best Sellers</a>
+                        </li>
+                        <li>
+                            <a href="#">Washington</a>
+                        </li>
+                        <li>
+                            <a href="#">Italy</a>
+                        </li>
+                        <li>
+                            <a href="france.html">France</a>
+                        </li>
+                        <li>
+                            <form  action="formhandler.php" method="post">
+                                <input type="text" name="search" id="search" maxlength="40" required="required" />
+                                <button class="pull-right btn">Search</button>
+                            </form>
+                        </li>   
+                    </ul>    
+                </nav>
+            </div> 
+            
+            <div class="row">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="index.html">
+                                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="active">France</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            
+            <div class="row">
+                <div id="sidebar" class="col-sm-3">
+                    <h2>Want to refine your search?</h2>
+                    <div class="sidenav">
+                        <select data-placeholder="Regions" class="chosen-select region" multiple style="width:100%;" tabindex="4">
+                            <option value=""></option>
+                            <option value="Old World">Old World</option>
+                                <option value="Austria">-Austria</option>
+                                <option value="France">-France</option>
+                                    <option value="Beaujolais">--Beaujolais</option>
+                                    <option value="Bordeaux">--Bordeaux</option>
+                                    <option value="Champagne">--Champange</option>
+                                    <option value="Loire">--Loire</option>
+                                    <option value="Provence">--Provence</option>
+                                    <option value="Rhone">--Rhone</option>         
+                                <option value="Germany">-Germany</option>
+                                <option value="Greece">-Greece</option>        
+                                <option value="Israel">-Israel</option>
+                                <option value="Italy">-Italy</option>
+                                    <option value="Alto Adige">--Alto Adige</option>
+                                    <option value="Piedmont">--Piedmont</option>
+                                    <option value="Prosecco">--Prosecco</option>
+                                    <option value="Sicily">--Sicily</option>
+                                    <option value="Tuscany">--Tuscany</option>
+                                <option value="Macedonia">-Macdeconia</option>
+                                <option value="Portugal">-Portugal</option>
+                                    <option value="Duero">--Duero</option>
+                                    <option value="Porto">--Porto</option>
+                                    <option value="Vinho Verde">--Vinho Verde</option>
+                                <option value="Spain">-Spain</option>
+                                    <option value="Cava">--Cava</option>
+                                    <option value="Galicia">--Galicia</option>
+                                    <option value="Jerez">--Jerez</option>
+                                    <option value="Penedes">--Penedes</option>
+                                    <option value="Priorat">--Priorat</option>
+                                    <option value="Ribera del Duero">--Ribera del Duero</option>
+                                    <option value="Rioja">--Rioja</option> 
+                            <option value="New World">New World</option>
+                                <option value="Argentina">-Argentina</option>
+                                    <option value="Mendoza">--Mendoza</option>
+                                    <option value="Salta">--Salta</option>
+                                <option value="Australia">-Australia</option>
+                                <option value="Chile">-Chile</option>
+                                <option value="New Zealand">-New Zealand</option>
+                                <option value="South Africa">-South Africa</option>
+                                <option value="USA">-United States</option>
+                                    <option value="California">--California</option>
+                                    <option value="Oregon">--Oregon</option>
+                                    <option value="Washington">--Washington</option>
+                        </select>   
+                        
+                        <select data-placeholder="Colors and Types" class="chosen-select color" multiple style="width:100%;" tabindex="4">
+                            <option value=""></option>
+                            <option value="Red">Red</option>
+                            <option value="White">White</option>
+                            <option value="Rose">Rose</option>
+                            <option value="Sparkling">Sparkling</option>
+                        </select>    
+                        
+                        <select data-placeholder="Grapes" class="chosen-select grape" multiple style="width:100%;" tabindex="4">
+                            <option value=""></option>
+                            <option value="Albarino">Albarino</option>
+                            <option value="Alfro Cheiro">Alfro Cheiro</option>
+                            <option value="Barbera">Barbera</option>
+                            <option value="Blaufrankish/Lemberger
+">Blaufrankish/Lemberger</option>
+                            <option value="Cabernet Franc">Cabernet Franc</option>
+                            <option value="Cab Sauvignon">Cab Sauvignon</option>
+                            <option value="Carignan">Carignan</option>
+                            <option value="Carminere">Carminere</option>
+                            <option value="Chardonnay">Chardonnay</option>
+                            <option value="Chenin Blanc">Chenin Blanc</option>
+                            <option value="Cinsault">Cinsault</option>
+                            <option value="Claret">Claret</option>
+                            <option value="Gamay">Gamay</option>
+                            <option value="Garnacha">Garnacha</option>
+                            <option value="Gavi">Gavi</option>
+                            <option value="Gewurtraminer">Gewurtraminer</option>
+                            <option value="Glara/Prosecco">Glara/Prosecco</option>
+                            <option value="Grenache">Grenache</option>
+                            <option value="Grenache Blanc">Grenache Blanc</option>
+                            <option value="Gruner Veltliner">Gruner Veltliner</option>
+                            <option value="La Grein">La Grein</option>
+                            <option value="Lemberger/Blaugfrankish">Lemberger/Blaufrankish</option>
+                            <option value="Macabeo">Macabeo</option>
+                            <option value="Madeline Angevine">Madeline Angevine</option>
+                            <option value="Malbec">Malbec</option>
+                            <option value="Marssane">Marssane</option>
+                            <option value="Melon de Bourgogne">Melon de Bourgogne</option>
+                            <option value="Merlot">Merlot</option>
+                            <option value="Moscato">Moscato</option>
+                            <option value="Mourvedre">Mourvedre</option>
+                            <option value="Muscat">Muscat</option>
+                            <option value="Nebbiolo">Nebbiolo</option>
+                            <option value="Negro Amaro">Negro Amaro</option>
+                            <option value="Nero di Avola">Nero de Avola</option>
+                            <option value="Picpoul">Picpoul</option>
+                            <option value="Pinot Blanc">Pinot Blanc</option>
+                            <option value="Pinot Grigio/Pinot Gris">Pinot Grigio/Pinot Gris</option>
+                            <option value="Pinot Mounier">Pinot Mounier</option>
+                            <option value="Pinot Noir">Pinot Noir</option>
+                            <option value="Pinotage">Pinotage</option>
+                            <option value="Prosecco/Glara">Prosecco/Glara</option>
+                            <option value="Riesling">Riesling</option>
+                            <option value="Roussane">Roussane</option>
+                            <option value="Sangiovese">Sangiovese</option>
+                            <option value="Sauvignon Blanc">Sauvignon Blanc</option>
+                            <option value="St Laurant">St Laurant</option>
+                            <option value="Syrah/Shiraz">Syrah/Shiraz</option>
+                            <option value="Tannat">Tannat</option>
+                            <option value="Tempranillo">Tempranillo</option>
+                            <option value="Tinto Nacional">Tinto Nacional</option>
+                            <option value="Tinto Roriz">Tinto Roriz</option>
+                            <option value="Torrontes">Torrontes</option>
+                            <option value="Verdejo">Verdejo</option>
+                            <option value="Vermentino">Vermentino</option>
+                            <option value="Vinho Verde">Vinho Verde</option>
+                            <option value="Viognier">Viognier</option>
+                            <option value="Vranic">Vranic</option>
+                            <option value="Xarrelo">Xarrelo</option>
+                            <option value="Xino Mauro">Xino Mauro</option>
+                        </select>    
+                        
+                        <select data-placeholder="Food Pairings" class="chosen-select food" multiple style="width:100%;" tabindex="4">
+                            <option value=""></option>
+                            <option value="United States">United States</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Aland Islands">Aland Islands</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="American Samoa">American Samoa</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                        </select>    
+                        
+                        <select data-placeholder="Vintages" class="chosen-select size" multiple style="width:100%;" tabindex="4">
+                            <option value=""></option>
+                            <option value="Pre-2007">Older than 2007</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                        </select>  
+                        
+                        <select data-placeholder="Sizes" class="chosen-select size" multiple style="width:100%;" tabindex="4">
+                            <option value=""></option>
+                            <option value="Half">375mL- Half</option>
+                            <option value="Standard">750ml- Standard</option>
+                            <option value="Magnum">1.5L- Magnum</option>
+                            <option value="Double Magnum">3L- Double Magnum</option>
+                            <option value="Jeroboam">4.5L- Jeroboam</option>
+                            <option value="Imperial">6L- Imperial</option>
+                        </select>  
+                        
+                        <div class="slider">
+                            <p>
+                                <label for="amount">Price range:</label>
+                                <input type="text" id="amount">
+                            </p>
+                            <div id="slider-range"></div>
+                        </div>
+                        <form>
+                            <input type="checkbox" name="kosher" value="Kosher"> Kosher<br>
+                            <input type="checkbox" name="organic" value="Organic"> Organic<br>
+                            <input type="checkbox" name="points" value="Points"> Points<br>
+                            <button class="btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-9 content">
+                    <h1>France</h1>
+                    
+                    <nav id="regions-nav">
+                        <ul>
+                            <li>
+                                <a href="burgundy.html">Burgundy</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Bordeaux</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Loire</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Rhone</a>
+                            </li>
+                            <li class="long">
+                                <a href="javascript:;">Champagne and Sparkling</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <nav>
+                        <ul class="pagination pull-right">
+                            <li>
+                                <a href="javascript:;" aria-label="First">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" aria-label="Previous">
+                                    <span aria-hidden="true">&larr;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">2</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">3</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">4</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">5</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" aria-label="Next">
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" aria-label="Last">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <div class="btn-group">
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                Sort by... <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Price Highest to Lowest</a></li>
+                                <li><a href="#">Price Lowest to Highest</a></li>
+                                <li><a href="#">Newest Stocked First</a></li>
+                                <li><a href="#">Alphabetical A to Z</a></li>
+                                <li><a href="#">Alphabetical Z to A</a></li>
+                          </ul>
+                    </div>
+
+                    <div class="row products">
+                        <div class="col-sm-12">
+                            <div class="thumbnail thirty pull-left">
+                                <img src="images/labels/wine_l42.jpg" class="img-responsive">
+                                <div class="caption">
+                                    <h3>Muscadet des Coteaux de la Loire</h3>
+                                    <p>$12</p>
+                                    <a href="javascript:;" class="pull-left" role="button">
+                                        <button class="btn">Details</button>
+                                    </a>
+                                    <a href="javascript:;" class="pull-right" role="button">
+                                        <button class="btn">Add to Cart</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="thumbnail thirty pull-left">
+                                <img src="images/labels/fleurrigaud.jpg" class="img-responsive">
+                                <div class="caption">
+                                    <h3>Fleur de Rigaud Bordeaux Superieur</h3>
+                                    <p>$14</p>
+                                    <a href="javascript:;" class="pull-left" role="button">
+                                        <button class="btn">Details</button>
+                                    </a>
+                                    <a href="javascript:;" class="pull-right">
+                                        <button class="btn">Add to Cart</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="thumbnail thirty pull-left">
+                                <img src="images/labels/54f9d7e707086_-_alsace-gewurztraminer-xl-98213074.jpg" class="img-responsive">
+                                <div class="caption">
+                                    <h3>Hugel Alsatian Gewurztraminer</h3>
+                                    <p>$12</p>
+                                    <a href="javascript:;" class="pull-left" role="button">
+                                        <button class="btn">Details</button>
+                                    </a>
+                                    <a href="javascript:;" class="pull-right">
+                                        <button class="btn">Add to Cart</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row products">
+                        <div class="col-sm-12">
+                            <div class="thumbnail thirty pull-left">
+                                <img src="images/labels/86193d.jpg" class="img-responsive">
+                                <div class="caption">
+                                    <h3>La Vieille Ferme Cotes du Ventoux</h3>
+                                    <p>$9</p>
+                                    <a href="javascript:;" class="pull-left" role="button">
+                                        <button class="btn">Details</button>
+                                    </a>
+                                    <a href="javascript:;" class="pull-right">
+                                        <button class="btn">Add to Cart</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="thumbnail thirty pull-left exclusive">
+                                <img src="images/labels/chat-exclusive.jpg" class="img-responsive">
+                                <div class="caption">
+                                    <h3>Chat-en-Oeuf Table Red</h3>
+                                    <p>$7</p>
+                                    <a href="javascript:;" class="pull-left" role="button">
+                                        <button class="btn">Details</button>
+                                    </a>
+                                    <a href="javascript:;" class="pull-right">
+                                        <button class="btn">Add to Cart</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="thumbnail thirty pull-left">
+                                <img src="images/labels/129513h.jpg" class="img-responsive">
+                                <div class="caption">
+                                    <h3>William Fevre Champs Royaux Chablis</h3>
+                                    <p>$22</p>
+                                    <a href="javascript:;" class="pull-left" role="button">
+                                        <button class="btn">Details</button>
+                                    </a>
+                                    <a href="javascript:;" class="pull-right">
+                                        <button class="btn">Add to Cart</button>
+                                    </a>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+
+                    <div class="row products">
+                        <div class="col-sm-12">
+                            <div class="thumbnail thirty pull-left">
+                                <img src="images/labels/jadot_beaujolais.jpg" class="img-responsive">
+                                <div class="caption">
+                                    <h3>Louis-Jadot Beaujolais-Village</h3>
+                                    <p>$14</p>
+                                    <a href="javascript:;" class="pull-left" role="button">
+                                        <button class="btn">Details</button>
+                                    </a>
+                                    <a href="javascript:;" class="pull-right">
+                                        <button class="btn">Add to Cart</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="thumbnail thirty pull-left">
+                                <img src="images/labels/krug.jpg" class="img-responsive">
+                                <div class="caption">
+                                    <h3>NV Krug Grande Cuvee Champage</h3>
+                                    <p>$45</p>
+                                    <a href="javascript:;" class="pull-left" role="button">
+                                        <button class="btn">Details</button>
+                                    </a>
+                                    <a href="javascript:;" class="pull-right">
+                                        <button class="btn">Add to Cart</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="thumbnail thirty pull-left exclusive">
+                                <img src="images/labels/provence-exclusive.jpg" class="img-responsive">
+                                <div class="caption">
+                                    <h3>Cote de Provence Rose</h3>
+                                    <p>$13</p>
+                                    <a href="javascript:;" class="pull-left" role="button">
+                                        <button class="btn">Details</button>
+                                    </a>
+                                    <a href="javascript:;" class="pull-right">
+                                        <button class="btn">Add to Cart</button>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <nav>
+                        <ul class="pagination pull-right">
+                            <li>
+                                <a href="javascript:;" aria-label="First">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" aria-label="Previous">
+                                    <span aria-hidden="true">&larr;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">1</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">2</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">3</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">4</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">5</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" aria-label="Next">
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" aria-label="Last">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>        
+        </div>
+        <footer class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2 footer-main">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">Home</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">About Us</a>
+                            </li>
+                            <li>
+                                <a href="javacript:;">Contact</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Upcoming Events</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">About Family Membership</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2 footer-sub">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">Special Offers</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Best Sellers</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Washington</a>
+                            </li>
+                            <li>
+                                <a href="france.html">France</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Italy</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2 footer-social">
+                    <nav>
+                        <h3>Follow Us:</h3>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="images/twitter47.png" class="img-responsive">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="images/facebook56.png" class="img-responsive">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2">
+                    <nav>
+                    <h3>Location</h3>
+                        <ul>
+                            <li>
+                                <a href="tel:1-999-999-9999">999-999-9999</a>
+                            </li>
+                            <li>
+                                <a href="mailto:example@whatever.com">trevor@bodegacellars.com</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">1111 Avenue Road<br>Seattle, Wa 98112</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-3 pull-right">
+                    <a href="https://www.google.com/maps/place/Seattle+Central+College/@47.6163451,-122.3217413,17z/data=!4m2!3m1!1s0x54906accc351c149:0xdc1a5c338dd4395c">
+                        <img src="images/map.jpg" class="img-responsive">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <form  action="formhandler.php" method="post">
+                        <input type="text" name="search" id="search" maxlength="40" required="required" />
+                        <button class="btn">Search</button>
+                    </form>
+                </div>    
+            </div>
+        </footer>
+    </body>
+</html>    

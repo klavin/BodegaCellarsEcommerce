@@ -1,0 +1,386 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Bodega Cellars | Seattle Washington Wine Shop</title>
+        
+        <meta charset="utf-8" />
+        <meta name="viewport" content="device-content-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex,nofollow" />
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="chosen/chosen.css">
+        <link rel="stylesheet" href="style.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="chosen/chosen.jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+            $(window).load(function(){
+                $(".chosen-select").chosen()
+            });
+        </script>
+        <script>
+          $(function() {
+            $( "#slider-range" ).slider({
+              range: true,
+              min: 0,
+              max: 500,
+              values: [ 75, 300 ],
+              slide: function( event, ui ) {
+                $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+              }
+            });
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+              " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+          });
+        </script>
+        <script type="text/javascript">
+            $('#gallery li img').hover(function() {
+                $('#main-img').attr('src',$(this).attr('src').replace('thumb/', ''));
+            });
+            
+            $(document).ready(function() {
+                // Image swap on hover
+                $("#gallery li img").hover(function(){
+                    $('#main-img').attr('src',$(this).attr('src').replace('thumb/', ''));
+                });
+                // Image preload
+                var imgSwap = [];
+                 $("#gallery li img").each(function(){
+                    imgUrl = this.src.replace('thumb/', '');
+                    imgSwap.push(imgUrl);
+                });
+                $(imgSwap).preload();
+            });
+            $.fn.preload = function() {
+                this.each(function(){
+                    $('<img/>')[0].src = this;
+                });
+            }
+            
+            $(function() {
+                var spinner = $( ".spinner" ).spinner();
+
+                $( "#disable" ).click(function() {
+                  if ( spinner.spinner( "option", "disabled" ) ) {
+                    spinner.spinner( "enable" );
+                  } else {
+                    spinner.spinner( "disable" );
+                  }
+                });
+                $( "#destroy" ).click(function() {
+                  if ( spinner.spinner( "instance" ) ) {
+                    spinner.spinner( "destroy" );
+                  } else {
+                    spinner.spinner();
+                  }
+                });
+                $( "#getvalue" ).click(function() {
+                  alert( spinner.spinner( "value" ) );
+                });
+                $( "#setvalue" ).click(function() {
+                  spinner.spinner( "value", 5 );
+                });
+
+                $( "button" ).button();
+              });
+        </script>
+    </head>
+    <body>
+        <header class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8">
+                    <a href="index.html">
+                        <img src="images/bodegalogolight.png" width="200px" class="img-responsive pull-left">
+                        <h1 class="pull-left">Bodega Cellars</h1>
+                    </a>
+                </div>
+                <div class="col-sm-1 col-sm-offset-2">
+                    <a href="javascript;:" class="img-responsive pull-right">
+                        <img src="images/twitter47.png">
+                    </a>
+                </div>
+                <div class="col-sm-1">
+                    <a href="javascript;:" class="img-responsive pull-right">
+                        <img src="images/facebook56.png">
+                    </a>
+                </div>    
+            </div>
+            <div class="row">
+                <nav class="col-sm-11 col-sm-offset-1">
+                    <ul>
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Location</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Upcoming Events</a>
+                        </li>
+                        <li>
+                            <a href="#">About Family Membership</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="btn">Sign In</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="btn">Sign Up</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ordersum.html">
+                                <i class="fa fa-shopping-cart fa-2x"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-heart fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div id="middle" class="container-fluid">
+            <div class="row">
+                <nav id="middle-main">
+                    <ul>
+                        <li>
+                            <a href="#">Special Offers</a>
+                        </li>
+                        <li>
+                            <a href="#">Best Sellers</a>
+                        </li>
+                        <li>
+                            <a href="#">Washington</a>
+                        </li>
+                        <li>
+                            <a href="#">Italy</a>
+                        </li>
+                        <li>
+                            <a href="france.html">France</a>
+                        </li>
+                        <li>
+                            <form  action="formhandler.php" method="post">
+                                <input type="text" name="search" id="search" maxlength="40" required="required" />
+                                <button class="pull-right btn">Search</button>
+                            </form>
+                        </li>   
+                    </ul>    
+                </nav>
+            </div> 
+            
+            <div class="row">
+                <ul class="list-group col-sm-12 col-sm-offset-1">
+                    <li class="list-group-item">Order Summary</li>
+                    <li class="list-group-item active">Sign In</li>
+                    <li class="list-group-item">Shipping and Billing</li>
+                    <li class="list-group-item">Review Order</li>
+                    <li class="list-group-item">Confirmation</li>
+                </ul>
+            </div>
+            
+            <div class="row subtotal">
+                <div>
+                    <ul class="list-group pull-right">
+                        <li class="list-group-item"><h3>Subtotal</h3></li>
+                        <li class="list-group-item"><h3>$XX.XX</h3></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-5">
+                    <h1>Checkout Preference</h1>
+                </div>
+                
+                <div class="checkout-nav">
+                    <div class="col-sm-2 only-child pull-right">
+                        <a href="javascript:;">
+                            <button class="btn">Back to Browse</button>
+                        </a>
+                    </div>
+                </div>    
+            </div>
+            
+            <div class="row">
+                <div class="thirty panel pull-left">
+                    <h2>Sign In</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="sign-in-email">Email</label>
+                            <input type="email" class="form-control" id="sign-in-email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="sign-in-pw">Password</label>
+                            <input type="password" class="form-control" id="sign-in-pw" placeholder="Password">
+                            <a href="javascript:;">Forgot Password?</a>
+                        </div>    
+                    </form>
+                    <a href="billing.html">
+                        <button class="btn center-block">Sign In</button>
+                    </a>    
+                </div>
+                
+                <div class="thirty panel pull-left">
+                    <h2>Sign Up</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="sign-up-email">*Email</label>
+                            <input type="email" class="form-control" id="sign-up-email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="sign-up-pw">*Password</label>
+                            <input type="password" class="form-control" id="sign-up-pw" placeholder="Password">
+                            <a href="javascript:;">Forgot Password?</a>
+                        </div>
+                        <div class="form-group">
+                            <label for="reenter-sign-up-pw">*Re-enter Password</label>
+                            <input type="password" class="form-control" id="reenter-sign-up-pw" pattern="Re-enter Password">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value=""><h3>Join the Family</h3>
+                                Spend or pay $100 a month to get acces to special prices, exclusive wines, and weekly in-store tastings and events.
+                                <a href="javascript:;">About Family Membership</a>
+                            </label>
+                        </div>
+                        <a href="billing.html">
+                            <button class="btn center-block">Sign Up</button>
+                        </a>    
+                    </form>
+                </div>
+                
+                <div class="thirty panel pull-left">
+                    <h2>Checkout as Guest</h2>
+                    <h4>Not in the mood to have us remember your order or information for next time? No worries, we can have you in and out in no time.</h4>
+                    <a href="billing.html">
+                        <button class="btn center-block">Continue to Checkout</button>
+                    </a>    
+                </div>
+            </div>
+            
+         <div class="row subtotal">
+                <div>
+                    <ul class="list-group pull-right">
+                        <li class="list-group-item"><h3>Subtotal</h3></li>
+                        <li class="list-group-item"><h3>$XX.XX</h3></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="checkout-nav">
+                    <div class="col-sm-2 pull-right only-child">
+                        <a href="javascript:;">
+                            <button class="btn">Back to Browse</button>
+                        </a>
+                    </div>
+                </div>    
+            </div>
+            
+        </div>
+        <footer class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2 footer-main">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">Home</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">About Us</a>
+                            </li>
+                            <li>
+                                <a href="javacript:;">Contact</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Upcoming Events</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">About Family Membership</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2 footer-sub">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">Special Offers</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Best Sellers</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Washington</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">France</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Italy</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2 footer-social">
+                    <nav>
+                        <h3>Follow Us:</h3>
+                        <ul>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="images/twitter47.png" class="img-responsive">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <img src="images/facebook56.png" class="img-responsive">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-2">
+                    <nav>
+                    <h3>Location</h3>
+                        <ul>
+                            <li>
+                                <a href="tel:1-999-999-9999">999-999-9999</a>
+                            </li>
+                            <li>
+                                <a href="mailto:example@whatever.com">trevor@bodegacellars.com</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">1111 Avenue Road<br>Seattle, Wa 98112</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-sm-3 pull-right">
+                    <a href="https://www.google.com/maps/place/Seattle+Central+College/@47.6163451,-122.3217413,17z/data=!4m2!3m1!1s0x54906accc351c149:0xdc1a5c338dd4395c">
+                        <img src="images/map.jpg" class="img-responsive">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <form  action="formhandler.php" method="post">
+                        <input type="text" name="search" id="search" maxlength="40" required="required" />
+                        <button class="btn">Search</button>
+                    </form>
+                </div>    
+            </div>
+        </footer>
+    </body>
+</html>    
